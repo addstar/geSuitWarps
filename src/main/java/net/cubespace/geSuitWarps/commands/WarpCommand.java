@@ -3,7 +3,6 @@ package net.cubespace.geSuitWarps.commands;
 import net.cubespace.geSuitWarps.geSuitWarps;
 
 import org.bukkit.Bukkit;
-import org.bukkit.ChatColor;
 import org.bukkit.Location;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -24,7 +23,7 @@ public class WarpCommand implements CommandExecutor {
             if (!player.hasPermission("gesuit.warps.bypass.delay")) {
                 final Location lastLocation = player.getLocation();
 
-                player.sendMessage(ChatColor.translateAlternateColorCodes('&', "&6Teleportation will commence in &c3 seconds&6. Don't move."));
+                player.sendMessage(geSuitWarps.teleportinitiated);
 
                 geSuitWarps.getInstance().getServer().getScheduler().runTaskLater(geSuitWarps.getInstance(), new Runnable() {
                     @Override
@@ -34,10 +33,10 @@ public class WarpCommand implements CommandExecutor {
                     			return;
                     		
     	                    if (lastLocation.getBlock().equals(player.getLocation().getBlock())) {
-		                        player.sendMessage(ChatColor.GOLD + "Teleportation commencing...");
+		                        player.sendMessage(geSuitWarps.teleporting);
 		                        WarpsManager.warpPlayer(sender, sender.getName(), args[0]);
 		                    } else {
-		                        player.sendMessage(ChatColor.RED + "Teleportation aborted because you moved.");
+		                        player.sendMessage(geSuitWarps.aborted);
 		                    }
                     	}
                     }

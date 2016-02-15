@@ -8,14 +8,24 @@ import net.cubespace.geSuitWarps.commands.SilentWarpCommand;
 import net.cubespace.geSuitWarps.commands.WarpCommand;
 import net.cubespace.geSuitWarps.listeners.WarpsListener;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class geSuitWarps extends JavaPlugin {
 	public static geSuitWarps instance;
+	public static String teleportinitiated;
+	public static String teleporting;
+	public static String aborted;	
 
 	@Override
 	public void onEnable() {
 		instance=this;
+		this.saveDefaultConfig();
+		getConfig().options().copyDefaults(true);
+		saveConfig();
+		teleportinitiated = ChatColor.translateAlternateColorCodes('&', getConfig().getString("messages.teleport_initiated"));
+		teleporting = ChatColor.translateAlternateColorCodes('&', getConfig().getString("messages.teleporting"));
+		aborted = ChatColor.translateAlternateColorCodes('&', getConfig().getString("messages.aborted"));
 		registerListeners();
 		registerChannels();
 		registerCommands();
