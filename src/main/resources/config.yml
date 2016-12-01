@@ -1,0 +1,4 @@
+messages:
+  teleport_initiated: "&6Teleportation will commence in &c3 &6seconds. Don't move."
+  teleporting: "&6Teleportation commencing..."
+  aborted: "&cTeleportation aborted because you moved."
