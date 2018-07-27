@@ -12,6 +12,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class geSuitWarps extends JavaPlugin {
 	public static geSuitWarps instance;
+	public static String CHANNEL_NAME = "bungeecord:gesuitwarps";
 
 	@Override
 	public void onEnable() {
@@ -31,7 +32,7 @@ public class geSuitWarps extends JavaPlugin {
 	}
 
 	private void registerChannels() {
-		Bukkit.getMessenger().registerOutgoingPluginChannel(this, "geSuitWarps");
+		Bukkit.getMessenger().registerOutgoingPluginChannel(this, CHANNEL_NAME);
 	}
 
 	private void registerListeners() {

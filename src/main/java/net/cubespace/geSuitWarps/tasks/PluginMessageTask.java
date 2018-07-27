@@ -22,7 +22,7 @@ public class PluginMessageTask extends BukkitRunnable {
 		if (player != null) {
 				player.sendPluginMessage(
 						geSuitWarps.instance,
-						"geSuitWarps",
+						geSuitWarps.CHANNEL_NAME,
 						bytes.toByteArray());
 			} else {
 				System.out.println(ChatColor.RED + "Unable to send Plugin Message - No players online.");
